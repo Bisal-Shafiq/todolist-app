@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* General Page Styling */
+body {
+  @apply bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Wrapper for the content */
+.wrapper {
+  @apply bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-2xl mx-auto;
+}
+
+/* Title Styling */
+.title {
+  @apply text-center text-2xl font-bold mb-6;
+}
+
+/* Input and Form Styling */
+.input-container {
+  @apply flex flex-col items-center mb-6 gap-4 w-full;
+}
+
+.input-field {
+  @apply w-full max-w-md px-4 py-2 rounded-md shadow-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-300;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.input-field:focus {
+  @apply bg-gray-800;
+  color: #00bcd4;
+}
+
+/* Button Styling */
+.add-button {
+  @apply w-full max-w-md px-4 py-2 rounded-md bg-gradient-to-r from-blue-500 to-teal-400 text-white font-semibold shadow-md transition-all;
+}
+
+.add-button:hover {
+  @apply from-teal-400 to-blue-500;
+  transform: scale(1.05);
+}
+
+/* Task List Styling */
+.task-list {
+  @apply list-none p-0;
+}
+
+.task-item {
+  @apply flex justify-between items-center bg-gray-700 text-white p-4 rounded-md shadow-md mb-4;
+}
+
+.task-item.completed span {
+  @apply line-through text-gray-400;
+}
+
+.task-content {
+  @apply flex items-center gap-4; /* Adds space between checkbox and text */
+}
+
+.checkbox {
+  @apply w-5 h-5 mr-4; /* Adds space between checkbox and text */
+}
+
+span {
+  @apply flex-grow text-white;
+}
+
+/* Action Buttons Styling */
+.action-buttons {
+  @apply flex gap-4; /* Space between buttons */
+}
+
+.delete-button, .edit-button {
+  @apply px-4 py-2 rounded-full text-white transition-all;
+}
+
+.delete-button {
+  @apply bg-red-600 hover:bg-red-500 hover:text-white;
+}
+
+.edit-button {
+  @apply bg-yellow-500 hover:bg-yellow-400 hover:text-white;
+}
+
+/* Icon Styling */
+.delete-button svg, .edit-button svg {
+  @apply text-white; /* Icon color */
+  width: 20px;
+  height: 20px;
+}
+
+.delete-button:hover svg, .edit-button:hover svg {
+  @apply text-black; /* Change icon color when hovering */
+}
+
+/* No Tasks Message */
+.no-tasks {
+  @apply text-center text-gray-400 italic mt-6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 4px; /* Reduced padding on smaller screens */
+  }
+
+  .input-field, .add-button {
+    max-width: 100%; /* Full width on smaller screens */
+  }
+
+  .task-item {
+    flex-direction: column; /* Stack task item content vertically */
+  }
+
+  .task-content {
+    flex-direction: column; /* Stack content vertically */
+  }
+
+  .checkbox {
+    margin-bottom: 8px; /* Space out checkbox from task text */
+  }
+
+  .action-buttons {
+    margin-top: 8px; /* Space between buttons */
+    justify-content: center; /* Center the action buttons */
+  }
+}
